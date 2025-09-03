@@ -1,7 +1,7 @@
 import React from 'react'
-import Hero from '../components/Hero'
-import LatestCollection from '../components/LatestCollection'
-import BestSeller from '../../../New folder/forever-main/frontend/src/components/BestSeller'
+import Hero from '../src/components/Hero'
+import LatestCollection from '../src/components/LatestCollection'
+import BestSeller from '../src/components/BestSeller'
 
 const Home = () => {
   return (

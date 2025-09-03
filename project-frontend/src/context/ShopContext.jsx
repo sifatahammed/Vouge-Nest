@@ -2,7 +2,7 @@ import { createContext, useEffect, useState } from "react";
 import axios from 'axios';
 import { toast } from "react-toastify";
 import { useNavigate } from 'react-router-dom';
-
+import {Products} from "../assets/assets"
 
 
 export const ShopContext = createContext(); 
