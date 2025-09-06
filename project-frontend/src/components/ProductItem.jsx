@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 const ProductItem = ({ id, image, name, price }) => {
   const { currency } = useContext(ShopContext); 
 
-  // Ensure `image` is an array and has at least one element
   const productImage = Array.isArray(image) && image.length > 0 ? image[0] : "placeholder.jpg";
 
   return (
