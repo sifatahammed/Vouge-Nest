@@ -7,7 +7,7 @@
     <!-- Light mode logo -->
     <source media="(prefers-color-scheme: light)" srcset="project-frontend/public/logo-light.png" />
     <!-- Fallback -->
-    <img alt="VougeNest Logo" src="assets/logo-light.png" width="300" style="margin-top:-40px; margin-bottom:0; padding:0;">
+    <img alt="VougeNest Logo" src="assets/logo-light.png" width="300" style="margin-top:-80px; margin-bottom:0; padding:0;">
   </picture>
 </p>
 
