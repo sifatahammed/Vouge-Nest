@@ -1,5 +1,5 @@
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=100&section=header" width="100%"/>
-<div align="center" style="margin-top:-20px;">
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=80&section=header" width="100%"/>
+<div align="center">
   <picture>
     <!-- Dark mode logo -->
     <source media="(prefers-color-scheme: dark)" srcset="project-frontend/public/logo-dark.png" />
