@@ -1,4 +1,15 @@
 # 🛍️ VougeNest  
+<p align="center">
+  <picture>
+    <!-- Dark mode logo -->
+    <source media="(prefers-color-scheme: dark)" srcset="project-frontend/public/logo-dark.png" />
+    <!-- Light mode logo -->
+    <source media="(prefers-color-scheme: light)" srcset="project-frontend/public/logo-light.png" />
+    <!-- Fallback if neither matches -->
+    <img alt="VougeNest Logo" src="assets/logo-light.png" width="300">
+  </picture>
+</p>
+
 
 <p align="center">
   <a href="https://react.dev/"><img src="https://img.shields.io/badge/Frontend-React-blue?logo=react" /></a>
@@ -124,6 +135,12 @@ npm run dev
 3. Commit your changes (git commit -m "Added feature")
 4. Push to branch (git push origin feature-name)
 5. Open a Pull Request
+
+## 🙋‍♂️ Author
+
+MD Sifat Ahammed Akash
+
+📫 Email: sifatahammed821@gmail.com
 
 ## 📄 License
 
