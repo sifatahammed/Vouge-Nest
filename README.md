@@ -1,4 +1,3 @@
-# 🛍️ VougeNest  
 <p align="center">
   <picture>
     <!-- Dark mode logo -->
