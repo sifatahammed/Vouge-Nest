@@ -12,14 +12,18 @@
 A **full-stack e-commerce platform** built with React, TailwindCSS, Node.js, and MongoDB.  
 VougeNest provides a **user-facing storefront**, an **admin dashboard**, and a **secure backend** to manage products and orders.  
 
-
+---
 ## 📂 Project Structure
-
+```
 VougeNest/
   ├── project-frontend/ # User-facing React app
   ├── project-backend/ # Backend (Node.js, Express, MongoDB)
-  └── admin-frontend/ # Admin dashboard (React app)
-
+  ├── admin-frontend/ # Admin dashboard (React app)
+  ├── .gitignore
+  ├── .env (not committed)
+  ├── README.md
+  └── package.json
+```
 ## ✨ Features
 
 ### 👤 User
@@ -123,4 +127,10 @@ npm run dev
 
 ## 📄 License
 
-This project is licensed under the MIT License.
+<div align="center">
+
+MIT License © [MD Sifat Ahammed Akash](LICENSE)
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=100&section=footer" width="100%"/>
+
+</div>
