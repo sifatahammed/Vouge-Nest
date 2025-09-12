@@ -21,9 +21,7 @@
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" /></a>
 </p>
 
-**VougeNest** is a modern **full-stack e-commerce web application** designed to deliver a seamless online shopping experience.  
-Built with React, React Router, TailwindCSS, Axios, Node.js, Express.js, and MongoDB, it is designed with clean architecture and modular separation- A **user-facing storefront** where customers can explore collections, filter products, add items to cart, place orders, and view their purchase history, An **admin panel** that allows administrators to securely log in, add and manage products, and view all customer orders, A **backend server** that handles authentication, data storage, order processing, and payment integration ensuring a fast, responsive, and scalable shopping platform with a clean and intuitive UI.  
-
+**VougeNest** is a modern **full-stack e-commerce web app** built with **React**, **TailwindCSS**, **Node.js**, **Express**, and **MongoDB**. It features a **User Storefront** for browsing, filtering, cart management, and order tracking, an **Admin Panel** for secure product and order management, and a **Backend Server** handling authentication, payments, and data storage — delivering a fast, scalable, and intuitive shopping experience.
 ---
 ## 📂 Project Structure
 ```
