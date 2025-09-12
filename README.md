@@ -1,5 +1,5 @@
 <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=100&section=header" width="100%"/>
-<p align="center" style="margin-top:-20px; margin-bottom:0; padding:0;">
+<div align="center" style="margin-top:-20px; margin-bottom:0; padding:0;">
   <picture>
     <!-- Dark mode logo -->
     <source media="(prefers-color-scheme: dark)" srcset="project-frontend/public/logo-dark.png" />
@@ -8,7 +8,7 @@
     <!-- Fallback if neither matches -->
     <img alt="VougeNest Logo" src="assets/logo-light.png" width="300">
   </picture>
-</p>
+</div>
 
 
 <p align="center">
