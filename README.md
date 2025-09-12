@@ -7,14 +7,10 @@
     <!-- Light mode logo -->
     <source media="(prefers-color-scheme: light)" srcset="project-frontend/public/logo-light.png" />
     <!-- Fallback -->
-    <img 
-      alt="VougeNest Logo" 
-      src="assets/logo-light.png" 
-      width="300" 
-      style="margin-top:-40px; margin-bottom:0; padding:0; filter: drop-shadow(0px 4px 12px rgba(0,0,0,0.25));"
-    >
+    <img alt="VougeNest Logo" src="assets/logo-light.png" width="300" style="margin-top:-40px; margin-bottom:0; padding:0;">
   </picture>
 </p>
+
 
 <p align="center">
   <a href="https://react.dev/"><img src="https://img.shields.io/badge/Frontend-React-blue?logo=react" /></a>
