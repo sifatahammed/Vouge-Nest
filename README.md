@@ -1,15 +1,20 @@
 <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=100&section=header" width="100%"/>
-<p align="center">
+
+<p align="center" style="margin:0; padding:0;">
   <picture>
     <!-- Dark mode logo -->
     <source media="(prefers-color-scheme: dark)" srcset="project-frontend/public/logo-dark.png" />
     <!-- Light mode logo -->
     <source media="(prefers-color-scheme: light)" srcset="project-frontend/public/logo-light.png" />
-    <!-- Fallback if neither matches -->
-    <img alt="VougeNest Logo" src="assets/logo-light.png" width="300">
+    <!-- Fallback -->
+    <img 
+      alt="VougeNest Logo" 
+      src="assets/logo-light.png" 
+      width="300" 
+      style="margin-top:-40px; margin-bottom:0; padding:0; filter: drop-shadow(0px 4px 12px rgba(0,0,0,0.25));"
+    >
   </picture>
 </p>
-
 
 <p align="center">
   <a href="https://react.dev/"><img src="https://img.shields.io/badge/Frontend-React-blue?logo=react" /></a>
