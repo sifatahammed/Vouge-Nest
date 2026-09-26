@@ -23,19 +23,97 @@
 
 ![Demo](admin-frontend/public/vouge.png)
 
-**VougeNest** is a modern **full-stack e-commerce web app** built with **React**, **TailwindCSS**, **Node.js**, **Express**, and **MongoDB**. It features a **✨ User Storefront** for browsing, filtering, cart management, and order tracking, an **🛠️ Admin Panel** for secure product and order management, and a **⚙️ Backend Server** handling authentication, payments, and data storage — delivering a fast, scalable, and intuitive shopping experience.
+---
+
+## 📖 Overview
+
+**VougeNest** is a full-stack e-commerce web application designed around a
+separated **shopper storefront** and **administrator dashboard**.
+
+The application provides customers with a complete shopping workflow:
+
+> Browse → Discover Products → Filter → View Product → Add to Cart → Checkout → Track Orders
+
+At the same time, administrators have a dedicated management interface for:
+
+> Admin Login → Product Management → Order Management
+
+The platform follows a layered architecture where the React applications
+communicate with a Node.js/Express backend API. The backend handles
+authentication, authorization, business logic, database operations, and
+image management.
 
 ---
-## 📂 Project Structure
-```
-VougeNest/
-  ├── project-frontend/ # User-facing React app
-  ├── project-backend/ # Backend (Node.js, Express, MongoDB)
-  ├── admin-frontend/ # Admin dashboard (React app)
-  ├── .gitignore
-  ├── .env (not committed)
-  ├── README.md
-  └── package.json
+
+## 🎯 Key Highlights
+
+- 🛒 Full customer shopping experience
+- 🔐 JWT-based authentication and authorization
+- 👤 Separate customer and administrator workflows
+- 🛠️ Dedicated admin dashboard
+- 📦 Product creation and management
+- 🧾 Order creation and order tracking
+- 🛍️ Persistent shopping cart
+- 🔎 Product browsing and filtering
+- 🖼️ Cloudinary-based product image storage
+- 🗄️ MongoDB database with Mongoose models
+- 🌐 RESTful Express API
+- ⚛️ React-based storefront and admin application
+- 📱 Responsive user interface
+- 🧩 Modular backend route/controller architecture
+
+---
+
+# 🖼️ Project Preview
+
+![VougeNest Demo](admin-frontend/public/vouge.png)
+
+---
+
+# 🏗️ System Architecture
+
+VougeNest is organized into four major layers:
+
+```text
+┌───────────────────────────────┐
+│       Shopper Frontend        │
+│          React + UI           │
+│                               │
+│ Storefront │ Catalog │ Cart   │
+│ Checkout   │ Orders  │ State  │
+└───────────────┬───────────────┘
+                │
+                │ REST API
+                ▼
+┌───────────────────────────────┐
+│         Backend API           │
+│       Node.js + Express       │
+│                               │
+│ Authentication │ Routes       │
+│ Controllers    │ Validation   │
+│ Business Logic │ Authorization│
+└───────────────┬───────────────┘
+                │
+        ┌───────┴────────┐
+        │                │
+        ▼                ▼
+┌───────────────┐  ┌───────────────┐
+│    MongoDB    │  │   Cloudinary  │
+│               │  │               │
+│ Products      │  │ Product       │
+│ Users         │  │ Images        │
+│ Carts         │  │               │
+│ Orders        │  │               │
+└───────────────┘  └───────────────┘
+                ▲
+                │
+┌───────────────┴───────────────┐
+│       Admin Frontend          │
+│          React + UI           │
+│                               │
+│ Admin Login │ Products        │
+│ Orders      │ Management      │
+└───────────────────────────────┘
 ```
 ## ✨ Features
 
