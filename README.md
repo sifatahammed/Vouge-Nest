@@ -253,11 +253,12 @@ Express Server
 ---
 
 
-🔐 Authentication & Authorization
+## 🔐 Authentication & Authorization
 
 VougeNest separates authentication from authorization.
 
-Customer Flow
+### Customer Flow
+```
 Customer
    │
    ▼
@@ -271,7 +272,9 @@ Protected API Requests
    │
    ▼
 User-specific resources
-Administrator Flow
+```
+### Administrator Flow
+```
 Administrator
       │
       ▼
@@ -285,14 +288,14 @@ Admin Authorization
       │
       ▼
 Protected Admin API
-
+```
 The backend contains a dedicated authentication/authorization layer that
 guards protected administrative requests.
 
-🛒 Shopping Workflow
+## 🛒 Shopping Workflow
 
 A typical customer session follows this flow:
-
+```
 Browse Products
       │
       ▼
@@ -315,13 +318,13 @@ Create Order
       │
       ▼
 Order History / Tracking
-
+```
 The cart is handled through the cart API and associated user data.
 
-📦 Product Management Workflow
+## 📦 Product Management Workflow
 
 Administrators can create and manage products through the admin dashboard.
-
+```
 Admin Dashboard
       │
       ▼
@@ -341,15 +344,16 @@ Product Model
       │
       ▼
 MongoDB
-
+```
 Product images are uploaded to Cloudinary, while product metadata and
 references are persisted through MongoDB.
 
-🧾 Order Management
+## 🧾 Order Management
 
 Orders connect customers, cart information, and purchased products.
 
-Customer
+### Customer
+```
 Cart
  │
  ▼
@@ -366,7 +370,9 @@ Order Model
  │
  ▼
 MongoDB
-Administrator
+```
+### Administrator
+```
 Admin Dashboard
       │
       ▼
@@ -380,16 +386,17 @@ Order Controller
       │
       ▼
 MongoDB
-
+```
 This separation allows customer order creation and administrative order
 management to use the same centralized backend.
 
-🗄️ Data Layer
+## 🗄️ Data Layer
 
 VougeNest uses MongoDB as its primary application database with
 Mongoose providing schema modeling and database interaction.
 
-Core Models
+### Core Models
+```
 Commerce Data
 │
 ├── Product Model
@@ -400,7 +407,9 @@ Commerce Data
 │
 └── Order Model
     └── orderModel.js
-Data Relationships
+```
+### Data Relationships
+```
 User
  │
  ├── Cart
@@ -414,22 +423,25 @@ Product
  └── Product Images
         │
         └── Cloudinary
-☁️ External Services
-Cloudinary
+```
+## ☁️ External Services
+
+### Cloudinary
 
 Product images are handled using Cloudinary.
 
 Benefits include:
 
-Centralized image hosting
-CDN delivery
-Image transformation capabilities
-Reduced database storage requirements
+- Centralized image hosting
+- CDN delivery
+- Image transformation capabilities
+- Reduced database storage requirements
 
 The database stores product information while image assets are handled
 through Cloudinary.
 
-📂 Project Structure
+# 📂 Project Structure
+```
 VougeNest/
 │
 ├── project-frontend/
@@ -473,40 +485,39 @@ VougeNest/
 │   │   └── cloudinary.js
 │   │
 │   └── server.js
-│
-├── docs/
-│   └── architecture.png
-│
+├── diagram.png
 ├── .gitignore
 ├── README.md
 └── LICENSE
-
+```
 Directory names may vary slightly depending on the current implementation.
 The structure above represents the application's architectural organization.
 
-✨ Features
-👤 Shopper Features
-🏪 Browse the online storefront
-🗂️ Explore product collections
-🔎 Filter and discover products
-📄 View product details
-🛒 Add products to cart
-🔄 Update cart contents
-🔐 User authentication
-💳 Checkout workflow
-📦 Place orders
-🧾 View previous orders
-🚚 Track order information
-🛠️ Administrator Features
-🔐 Secure administrator login
-🛡️ Protected admin routes
-➕ Add products
-✏️ Manage products
-🖼️ Upload product images
-☁️ Cloudinary image integration
-📦 View customer orders
-🧾 Manage order information
-🛠️ Technology Stack
+## ✨ Features
+### 👤 Shopper Features
+- 🏪 Browse the online storefront
+- 🗂️ Explore product collections
+- 🔎 Filter and discover products
+- 📄 View product details
+- 🛒 Add products to cart
+- 🔄 Update cart contents
+- 🔐 User authentication
+- 💳 Checkout workflow
+- 📦 Place orders
+- 🧾 View previous orders
+- 🚚 Track order information
+
+### 🛠️ Administrator Features
+- 🔐 Secure administrator login
+- 🛡️ Protected admin routes
+- ➕ Add products
+- ✏️ Manage products
+- 🖼️ Upload product images
+- ☁️ Cloudinary image integration
+- 📦 View customer orders
+- 🧾 Manage order information
+
+## 🛠️ Technology Stack
 Frontend
 Technology	Purpose
 React	User interface
