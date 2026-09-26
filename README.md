@@ -671,25 +671,25 @@ data persistence organized into independent layers.
 
 ## 🔒 Security
 
-VougeNest implements several application-level security mechanisms:
+VogueNest implements several application-level security mechanisms:
 
-JWT-based authentication
-Protected customer operations
-Protected administrator operations
-Role-aware authorization
-Environment-based secret configuration
-Server-side API validation
-Separation between frontend and backend credentials
-Sensitive configuration excluded through .gitignore
+- **JWT-based authentication**
+- **Protected customer operations**
+- **Protected administrator operations**
+- **Role-aware authorization**
+- **Environment-based secret configuration**
+- **Server-side API validation**
+- **Separation between frontend and backend credentials**
+- **Sensitive configuration excluded through `.gitignore`**
 
-Production deployments should additionally use HTTPS, secure cookie/token
-strategies where appropriate, input validation, rate limiting, secure
-headers, and properly managed production secrets.
+> **Production Recommendation:** Production deployments should additionally use HTTPS, secure cookie/token strategies where appropriate, input validation, rate limiting, secure headers, and properly managed production secrets.
 
-🧪 Development Workflow
+---
+
+## 🧪 Development Workflow
 
 Recommended development flow:
-
+```
 1. Start MongoDB
        ↓
 2. Start Backend API
@@ -705,42 +705,50 @@ Recommended development flow:
 7. Test Cart & Checkout
        ↓
 8. Test Order Management
-📊 Architecture at a Glance
-Layer	Main Responsibility	Technologies
-Shopper UI	Customer shopping experience	React, TailwindCSS
-Admin UI	Product & order administration	React, TailwindCSS
-State Layer	Client-side application state	React Context
-API Layer	HTTP communication	Axios
-Server	Application/API logic	Node.js, Express
-Auth	Authentication & authorization	JWT
-Controllers	Business operations	Express Controllers
-Data Models	Database abstraction	Mongoose
-Database	Persistent application data	MongoDB
-Media	Product image storage	Cloudinary
-📌 Roadmap
+```
+
+## 📊 Architecture at a Glance
+
+| Layer | Main Responsibility | Technologies |
+| :--- | :--- | :--- |
+| **Shopper UI** | Customer shopping experience | React, TailwindCSS |
+| **Admin UI** | Product & order administration | React, TailwindCSS |
+| **State Layer** | Client-side application state | React Context |
+| **API Layer** | HTTP communication | Axios |
+| **Server** | Application/API logic | Node.js, Express |
+| **Auth** | Authentication & authorization | JWT |
+| **Controllers** | Business operations | Express Controllers |
+| **Data Models** | Database abstraction | Mongoose |
+| **Database** | Persistent application data | MongoDB |
+| **Media** | Product image storage | Cloudinary |
+
+---
+
+## 📌 Roadmap
 
 Planned improvements include:
 
- Product reviews and ratings
- Wishlist functionality
- Advanced admin analytics
- Sales and revenue dashboard
- Product inventory management
- Low-stock notifications
- Multiple administrator roles
- Delivery/fulfillment role
- Advanced order status workflow
- Improved product search
- Recommendation system
- Notification system
- Enhanced mobile experience
- Automated testing
- Production deployment
- CI/CD pipeline
-🚀 Future Architecture
+- [ ] Product reviews and ratings
+- [ ] Wishlist functionality
+- [ ] Advanced admin analytics
+- [ ] Sales and revenue dashboard
+- [ ] Product inventory management
+- [ ] Low-stock notifications
+- [ ] Multiple administrator roles
+- [ ] Delivery/fulfillment role
+- [ ] Advanced order status workflow
+- [ ] Improved product search
+- [ ] Recommendation system
+- [ ] Notification system
+- [ ] Enhanced mobile experience
+- [ ] Automated testing
+- [ ] Production deployment
+- [ ] CI/CD pipeline
+
+## 🚀 Future Architecture
 
 The application can be extended toward a more scalable architecture:
-
+```
                          ┌───────────────┐
                          │ Shopper App   │
                          └───────┬───────┘
@@ -765,48 +773,45 @@ The application can be extended toward a more scalable architecture:
                          ┌───────▼───────┐
                          │  Cloudinary   │
                          └───────────────┘
-
+```
 The current modular route/controller/model structure provides a foundation
 for introducing additional services and capabilities as the application
 grows.
-
-
-
   
 
-🤝 Contributing
+## 🤝 Contributing
 
 Contributions are welcome.
 
 1. Fork the repository
+```
 git fork
+```
 2. Create a feature branch
+```
 git checkout -b feature/your-feature-name
+```
 3. Make your changes
-
 Implement and test your feature.
-
 4. Commit your changes
-git add .
+```
+git add.
 git commit -m "Add: your feature description"
+```
 5. Push your branch
+```
 git push origin feature/your-feature-name
+```
 6. Open a Pull Request
 
 Describe the changes and include relevant screenshots or testing information.
 
-🐛 Issues & Feature Requests
+## 🐛 Issues & Feature Requests
 
 If you discover a bug or have an idea for improving VougeNest, please open a
-GitHub issue with:
+GitHub issue.
 
-Clear description
-Steps to reproduce
-Expected behavior
-Actual behavior
-Screenshots when applicable
-Relevant console/API errors
-👨‍💻 Author
+## 👨‍💻 Author
 <div align="center">
 MD Sifat Ahammed Akash
 
@@ -815,7 +820,7 @@ Full-Stack Developer | Computer Science & Engineering
 📧 Email: sifatahammed821@gmail.com
 
 </div>
-📄 License
+## 📄 License
 
 This project is licensed under the MIT License.
 
