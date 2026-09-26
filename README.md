@@ -115,6 +115,20 @@ VougeNest is organized into four major layers:
 │ Orders      │ Management      │
 └───────────────────────────────┘
 ```
+## 🏗️ Detailed Architecture Diagram
+
+The following diagram illustrates the complete architecture of **VougeNest**, including the shopper storefront, admin panel, backend API, authentication and authorization layers, routes, controllers, Mongoose models, MongoDB, and Cloudinary.
+
+<p align="center">
+  <img 
+    src="docs/architecture.png" 
+    alt="VougeNest Full-Stack E-Commerce Architecture Diagram"
+    width="100%"
+  />
+</p>
+
+### Architecture Flow
+
 ## ✨ Features
 
 ### 👤 User
