@@ -64,11 +64,6 @@ image management.
 
 ---
 
-# 🖼️ Project Preview
-
-![VougeNest Demo](admin-frontend/public/vouge.png)
-
----
 
 # 🏗️ System Architecture
 
@@ -121,7 +116,7 @@ The following diagram illustrates the complete architecture of **VougeNest**, in
 
 <p align="center">
   <img 
-    src="docs/architecture.png" 
+    src="diagram.png" 
     alt="VougeNest Full-Stack E-Commerce Architecture Diagram"
     width="100%"
   />
