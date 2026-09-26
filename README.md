@@ -820,11 +820,13 @@ Full-Stack Developer | Computer Science & Engineering
 📧 Email: sifatahammed821@gmail.com
 
 </div>
+
 ## 📄 License
+
 <div align="center">
 
 MIT License © MD Sifat Ahammed Akash
-
+</div>
 <div align="center">
 ⭐ If you find VougeNest useful, consider giving the repository a star!
 
