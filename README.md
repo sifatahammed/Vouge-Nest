@@ -440,7 +440,7 @@ Benefits include:
 The database stores product information while image assets are handled
 through Cloudinary.
 
-# 📂 Project Structure
+## 📂 Project Structure
 ```
 VougeNest/
 │
@@ -518,26 +518,35 @@ The structure above represents the application's architectural organization.
 - 🧾 Manage order information
 
 ## 🛠️ Technology Stack
-Frontend
-Technology	Purpose
-React	User interface
-React Router	Client-side routing
-TailwindCSS	Styling
-Axios	API communication
-Context API	Application state
-Backend
-Technology	Purpose
-Node.js	Server runtime
-Express.js	REST API framework
-JWT	Authentication
-Mongoose	MongoDB object modeling
-Multer	File/image upload handling
-Cloudinary	Image storage and delivery
-Database & Infrastructure
-Technology	Purpose
-MongoDB	Primary database
-Cloudinary	Product image storage
-Git/GitHub	Version control
+
+### 🎨 Frontend
+
+| Technology | Purpose |
+| :--- | :--- |
+| **React** | User interface |
+| **React Router** | Client-side routing |
+| **TailwindCSS** | Styling |
+| **Axios** | API communication |
+| **Context API** | Application state |
+
+### ⚙️ Backend
+
+| Technology | Purpose |
+| :--- | :--- |
+| **Node.js** | Server runtime |
+| **Express.js** | REST API framework |
+| **JWT** | Authentication |
+| **Mongoose** | MongoDB object modeling |
+| **Multer** | File/image upload handling |
+| **Cloudinary** | Image storage and delivery |
+
+### 🗄️ Database & Infrastructure
+
+| Technology | Purpose |
+| :--- | :--- |
+| **MongoDB** | Primary database |
+| **Cloudinary** | Product image storage |
+| **Git / GitHub** | Version control |
 
 ## 🚀 Getting Started
 
@@ -579,25 +588,31 @@ npm run dev
 
 ## 📦 Scripts
 
-Backend
+### Backend
+```
 npm install
 npm start
 npm run dev
-Shopper Frontend
+```
+### Shopper Frontend
+```
 npm install
 npm run dev
 npm run build
 npm run preview
-Admin Frontend
+```
+### Admin Frontend
+```
 npm install
 npm run dev
 npm run build
 npm run preview
+```
 
-🔌 API Architecture
+## 🔌 API Architecture
 
 The backend exposes REST-style endpoints grouped by resource.
-
+```
 /api
 │
 ├── /user
@@ -611,14 +626,14 @@ The backend exposes REST-style endpoints grouped by resource.
 │
 └── /order
     └── Order operations
-
+```
 The frontend applications communicate with these endpoints through HTTP
 requests.
 
-🔄 Request Lifecycle
+## 🔄 Request Lifecycle
 
 A typical request flows through the application as follows:
-
+```
 React Frontend
       │
       ▼
@@ -631,30 +646,30 @@ Express Server
 Authentication / Authorization
       │
       ▼
-Route
+    Route
       │
       ▼
-Controller
+  Controller
       │
       ▼
 Mongoose Model
       │
       ▼
-MongoDB
+   MongoDB
       │
       ▼
 Controller Response
       │
       ▼
-Express API
+  Express API
       │
       ▼
 React Application
-
+```
 This separation keeps presentation, API routing, business operations, and
 data persistence organized into independent layers.
 
-🔒 Security
+## 🔒 Security
 
 VougeNest implements several application-level security mechanisms:
 
