@@ -127,39 +127,382 @@ The following diagram illustrates the complete architecture of **VougeNest**, in
   />
 </p>
 
-### Architecture Flow
+🧩 Application Architecture
 
-## ✨ Features
+The project uses separate frontend applications for shoppers and
+administrators while sharing a centralized backend API.
 
-### 👤 User
-- Browse all product collections
-- Apply filters to refine products
-- Add products to cart (after login)
-- Place orders securely
-- View all past orders
+👤 Shopper Application
 
-### 🛠️ Admin
-- Secure login to access admin panel
-- Add new products
-- Manage existing products
-- View all customer orders
+The shopper-facing React application contains:
 
-## 🛠️ Tech Stack
+Storefront routes
+Product collections
+Product details
+Filtering
+Shopping cart
+Checkout
+Order history
+Order tracking
+Authentication state
 
-**Frontend (User & Admin)**  
-- React  
-- React Router  
-- TailwindCSS  
-- Axios  
+The primary state and API communication are handled through the
+ShopContext.
 
-**Backend**  
-- Node.js + Express.js  
-- MongoDB + Mongoose  
-- JWT Authentication  
-- Multer / Cloudinary (for images)  
-- Stripe / Razorpay (for payments)
+Main Shopper Components
+Storefront Routes
+      │
+      ├── Collection / Catalog
+      │
+      ├── Product Pages
+      │
+      ├── Cart
+      │
+      └── Checkout & Orders
+              │
+              ▼
+        ShopContext
+              │
+              ▼
+          Backend API
+🛠️ Admin Application
 
----
+The administrator interface is isolated from the customer storefront.
+
+Administrators can authenticate and access:
+
+📦 Product management
+🧾 Order management
+🔐 Protected admin routes
+➕ Product creation
+✏️ Product management
+👀 Order inspection
+Admin Route Flow
+Admin Login
+     │
+     ▼
+Admin Authentication
+     │
+     ▼
+Admin Routes
+     │
+     ├── Product Management
+     │
+     └── Order Management
+
+Protected administrative requests are validated through the backend
+authorization layer before reaching the relevant route/controller.
+
+⚙️ Backend Architecture
+
+The backend follows a route → controller → model architecture.
+
+Client
+  │
+  ▼
+Express Server
+  │
+  ├── Authentication
+  │
+  ├── Authorization
+  │
+  ├── Routes
+  │
+  ▼
+Controllers
+  │
+  ▼
+Mongoose Models
+  │
+  ▼
+MongoDB
+Backend Responsibilities
+
+The API server is responsible for:
+
+User authentication
+Admin authorization
+Product operations
+Cart operations
+Order operations
+User operations
+Database communication
+Image upload integration
+Request/response handling
+🔐 Authentication & Authorization
+
+VougeNest separates authentication from authorization.
+
+Customer Flow
+Customer
+   │
+   ▼
+Login / Authentication
+   │
+   ▼
+JWT Token
+   │
+   ▼
+Protected API Requests
+   │
+   ▼
+User-specific resources
+Administrator Flow
+Administrator
+      │
+      ▼
+Admin Login
+      │
+      ▼
+Authentication
+      │
+      ▼
+Admin Authorization
+      │
+      ▼
+Protected Admin API
+
+The backend contains a dedicated authentication/authorization layer that
+guards protected administrative requests.
+
+🛒 Shopping Workflow
+
+A typical customer session follows this flow:
+
+Browse Products
+      │
+      ▼
+Filter / Discover
+      │
+      ▼
+Product Details
+      │
+      ▼
+Add to Cart
+      │
+      ▼
+Cart Management
+      │
+      ▼
+Checkout
+      │
+      ▼
+Create Order
+      │
+      ▼
+Order History / Tracking
+
+The cart is handled through the cart API and associated user data.
+
+📦 Product Management Workflow
+
+Administrators can create and manage products through the admin dashboard.
+
+Admin Dashboard
+      │
+      ▼
+Product Management
+      │
+      ▼
+Product API
+      │
+      ▼
+Product Controller
+      │
+      ├──────────────► Cloudinary
+      │                 Product Images
+      │
+      ▼
+Product Model
+      │
+      ▼
+MongoDB
+
+Product images are uploaded to Cloudinary, while product metadata and
+references are persisted through MongoDB.
+
+🧾 Order Management
+
+Orders connect customers, cart information, and purchased products.
+
+Customer
+Cart
+ │
+ ▼
+Checkout
+ │
+ ▼
+Order API
+ │
+ ▼
+Order Controller
+ │
+ ▼
+Order Model
+ │
+ ▼
+MongoDB
+Administrator
+Admin Dashboard
+      │
+      ▼
+Order Management
+      │
+      ▼
+Order API
+      │
+      ▼
+Order Controller
+      │
+      ▼
+MongoDB
+
+This separation allows customer order creation and administrative order
+management to use the same centralized backend.
+
+🗄️ Data Layer
+
+VougeNest uses MongoDB as its primary application database with
+Mongoose providing schema modeling and database interaction.
+
+Core Models
+Commerce Data
+│
+├── Product Model
+│   └── productModel.js
+│
+├── User & Cart Model
+│   └── userModel.js
+│
+└── Order Model
+    └── orderModel.js
+Data Relationships
+User
+ │
+ ├── Cart
+ │
+ └── Orders
+       │
+       └── Products
+
+Product
+ │
+ └── Product Images
+        │
+        └── Cloudinary
+☁️ External Services
+Cloudinary
+
+Product images are handled using Cloudinary.
+
+Benefits include:
+
+Centralized image hosting
+CDN delivery
+Image transformation capabilities
+Reduced database storage requirements
+
+The database stores product information while image assets are handled
+through Cloudinary.
+
+📂 Project Structure
+VougeNest/
+│
+├── project-frontend/
+│   ├── public/
+│   └── src/
+│       ├── components/
+│       ├── pages/
+│       ├── context/
+│       ├── hooks/
+│       └── ...
+│
+├── admin-frontend/
+│   ├── public/
+│   └── src/
+│       ├── components/
+│       ├── pages/
+│       ├── context/
+│       └── ...
+│
+├── project-backend/
+│   ├── controllers/
+│   │   ├── orderController.js
+│   │   ├── cartController.js
+│   │   └── userController.js
+│   │
+│   ├── middleware/
+│   │   └── adminAuth.js
+│   │
+│   ├── models/
+│   │   ├── productModel.js
+│   │   ├── userModel.js
+│   │   └── orderModel.js
+│   │
+│   ├── routes/
+│   │   ├── userRoute.js
+│   │   ├── productRoute.js
+│   │   ├── cartRoute.js
+│   │   └── orderRoute.js
+│   │
+│   ├── config/
+│   │   └── cloudinary.js
+│   │
+│   └── server.js
+│
+├── docs/
+│   └── architecture.png
+│
+├── .gitignore
+├── README.md
+└── LICENSE
+
+Directory names may vary slightly depending on the current implementation.
+The structure above represents the application's architectural organization.
+
+✨ Features
+👤 Shopper Features
+🏪 Browse the online storefront
+🗂️ Explore product collections
+🔎 Filter and discover products
+📄 View product details
+🛒 Add products to cart
+🔄 Update cart contents
+🔐 User authentication
+💳 Checkout workflow
+📦 Place orders
+🧾 View previous orders
+🚚 Track order information
+🛠️ Administrator Features
+🔐 Secure administrator login
+🛡️ Protected admin routes
+➕ Add products
+✏️ Manage products
+🖼️ Upload product images
+☁️ Cloudinary image integration
+📦 View customer orders
+🧾 Manage order information
+🛠️ Technology Stack
+Frontend
+Technology	Purpose
+React	User interface
+React Router	Client-side routing
+TailwindCSS	Styling
+Axios	API communication
+Context API	Application state
+Backend
+Technology	Purpose
+Node.js	Server runtime
+Express.js	REST API framework
+JWT	Authentication
+Mongoose	MongoDB object modeling
+Multer	File/image upload handling
+Cloudinary	Image storage and delivery
+Database & Infrastructure
+Technology	Purpose
+MongoDB	Primary database
+Cloudinary	Product image storage
+Git/GitHub	Version control
 
 ## 🚀 Getting Started
 
@@ -201,47 +544,236 @@ npm run dev
 
 ## 📦 Scripts
 
-**- Backend**
-- nodemon server.js → Start backend with nodemon
-- npm start → Run backend normally
+Backend
+npm install
+npm start
+npm run dev
+Shopper Frontend
+npm install
+npm run dev
+npm run build
+npm run preview
+Admin Frontend
+npm install
+npm run dev
+npm run build
+npm run preview
+
+🔌 API Architecture
+
+The backend exposes REST-style endpoints grouped by resource.
+
+/api
+│
+├── /user
+│   └── Authentication & user operations
+│
+├── /product
+│   └── Product operations
+│
+├── /cart
+│   └── Cart operations
+│
+└── /order
+    └── Order operations
+
+The frontend applications communicate with these endpoints through HTTP
+requests.
+
+🔄 Request Lifecycle
+
+A typical request flows through the application as follows:
+
+React Frontend
+      │
+      ▼
+Axios / HTTP Request
+      │
+      ▼
+Express Server
+      │
+      ▼
+Authentication / Authorization
+      │
+      ▼
+Route
+      │
+      ▼
+Controller
+      │
+      ▼
+Mongoose Model
+      │
+      ▼
+MongoDB
+      │
+      ▼
+Controller Response
+      │
+      ▼
+Express API
+      │
+      ▼
+React Application
+
+This separation keeps presentation, API routing, business operations, and
+data persistence organized into independent layers.
+
+🔒 Security
+
+VougeNest implements several application-level security mechanisms:
+
+JWT-based authentication
+Protected customer operations
+Protected administrator operations
+Role-aware authorization
+Environment-based secret configuration
+Server-side API validation
+Separation between frontend and backend credentials
+Sensitive configuration excluded through .gitignore
+
+Production deployments should additionally use HTTPS, secure cookie/token
+strategies where appropriate, input validation, rate limiting, secure
+headers, and properly managed production secrets.
+
+🧪 Development Workflow
+
+Recommended development flow:
+
+1. Start MongoDB
+       ↓
+2. Start Backend API
+       ↓
+3. Start Shopper Frontend
+       ↓
+4. Start Admin Frontend
+       ↓
+5. Test Authentication
+       ↓
+6. Test Product Operations
+       ↓
+7. Test Cart & Checkout
+       ↓
+8. Test Order Management
+📊 Architecture at a Glance
+Layer	Main Responsibility	Technologies
+Shopper UI	Customer shopping experience	React, TailwindCSS
+Admin UI	Product & order administration	React, TailwindCSS
+State Layer	Client-side application state	React Context
+API Layer	HTTP communication	Axios
+Server	Application/API logic	Node.js, Express
+Auth	Authentication & authorization	JWT
+Controllers	Business operations	Express Controllers
+Data Models	Database abstraction	Mongoose
+Database	Persistent application data	MongoDB
+Media	Product image storage	Cloudinary
+📌 Roadmap
+
+Planned improvements include:
+
+ Product reviews and ratings
+ Wishlist functionality
+ Advanced admin analytics
+ Sales and revenue dashboard
+ Product inventory management
+ Low-stock notifications
+ Multiple administrator roles
+ Delivery/fulfillment role
+ Advanced order status workflow
+ Improved product search
+ Recommendation system
+ Notification system
+ Enhanced mobile experience
+ Automated testing
+ Production deployment
+ CI/CD pipeline
+🚀 Future Architecture
+
+The application can be extended toward a more scalable architecture:
+
+                         ┌───────────────┐
+                         │ Shopper App   │
+                         └───────┬───────┘
+                                 │
+                         ┌───────▼───────┐
+                         │   API Layer   │
+                         └───────┬───────┘
+                                 │
+              ┌──────────────────┼──────────────────┐
+              │                  │                  │
+       ┌──────▼──────┐    ┌──────▼──────┐    ┌──────▼──────┐
+       │ Auth        │    │ Products    │    │ Orders      │
+       │ Service     │    │ Service     │    │ Service     │
+       └──────┬──────┘    └──────┬──────┘    └──────┬──────┘
+              │                  │                  │
+              └──────────────────┼──────────────────┘
+                                 │
+                         ┌───────▼───────┐
+                         │   MongoDB     │
+                         └───────────────┘
+                                 │
+                         ┌───────▼───────┐
+                         │  Cloudinary   │
+                         └───────────────┘
+
+The current modular route/controller/model structure provides a foundation
+for introducing additional services and capabilities as the application
+grows.
+
+
+
   
-**- Frontend/Admin**
-- npm run dev → Start Vite dev server
-- npm run build → Build production app
-  
-## 🔒 Authentication
 
-- Users must log in to add to cart and place orders
-- Admin must log in to manage products & orders
-- Uses JWT tokens for secure API authentication
----
-## 📌 Future Enhancements
+🤝 Contributing
 
-- Add reviews & ratings
-- Wishlist functionality
-- Admin analytics dashboard
-- Multi-role support (delivery, super admin)
+Contributions are welcome.
 
-## 🤝 Contributing
+1. Fork the repository
+git fork
+2. Create a feature branch
+git checkout -b feature/your-feature-name
+3. Make your changes
 
-1. Fork the repo
-2. Create a feature branch (git checkout -b feature-name)
-3. Commit your changes (git commit -m "Added feature")
-4. Push to branch (git push origin feature-name)
-5. Open a Pull Request
+Implement and test your feature.
 
-## 🙋‍♂️ Author
+4. Commit your changes
+git add .
+git commit -m "Add: your feature description"
+5. Push your branch
+git push origin feature/your-feature-name
+6. Open a Pull Request
 
+Describe the changes and include relevant screenshots or testing information.
+
+🐛 Issues & Feature Requests
+
+If you discover a bug or have an idea for improving VougeNest, please open a
+GitHub issue with:
+
+Clear description
+Steps to reproduce
+Expected behavior
+Actual behavior
+Screenshots when applicable
+Relevant console/API errors
+👨‍💻 Author
+<div align="center">
 MD Sifat Ahammed Akash
 
-📫 Email: sifatahammed821@gmail.com
+Full-Stack Developer | Computer Science & Engineering
 
-## 📄 License
-
-<div align="center">
-
-MIT License © [MD Sifat Ahammed Akash](LICENSE)
-
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=100&section=footer" width="100%"/>
+📧 Email: sifatahammed821@gmail.com
 
 </div>
+📄 License
+
+This project is licensed under the MIT License.
+
+See the LICENSE file for details.
+
+<div align="center">
+⭐ If you find VougeNest useful, consider giving the repository a star!
+
+Built with ❤️ using React, Node.js, Express, MongoDB, and Cloudinary.
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=100&section=footer" width="100%"/> </div> 
