@@ -821,10 +821,9 @@ Full-Stack Developer | Computer Science & Engineering
 
 </div>
 ## 📄 License
+<div align="center">
 
-This project is licensed under the MIT License.
-
-See the LICENSE file for details.
+MIT License © MD Sifat Ahammed Akash
 
 <div align="center">
 ⭐ If you find VougeNest useful, consider giving the repository a star!
