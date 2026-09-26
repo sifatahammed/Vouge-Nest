@@ -122,108 +122,137 @@ The following diagram illustrates the complete architecture of **VougeNest**, in
   />
 </p>
 
-🧩 Application Architecture
+## 🧩 Application Architecture
 
-The project uses separate frontend applications for shoppers and
-administrators while sharing a centralized backend API.
+```
+                      ┌─────────────────────────────────┐
+                      │          VougeNest System        │
+                      └────────────────┬────────────────┘
+                                       │
+            ┌──────────────────────────┴──────────────────────────┐
+            ▼                                                     ▼
+┌───────────────────────┐                             ┌───────────────────────┐
+│  Shopper Application  │                             │   Admin Application   │
+│       (React)         │                             │       (React)         │
+└───────────┬───────────┘                             └───────────┬───────────┘
+            │                                                     │
+            └──────────────────────────┬──────────────────────────┘
+                                       │
+                                       ▼
+                       ┌───────────────────────────────┐
+                       │      Backend API (Express)    │
+                       └───────────────┬───────────────┘
+                                       │
+                                       ▼
+                       ┌───────────────────────────────┐
+                       │       Database (MongoDB)      │
+                       └───────────────────────────────┘
+```
 
-👤 Shopper Application
+---
 
-The shopper-facing React application contains:
+## 👤 Shopper Application
 
-Storefront routes
-Product collections
-Product details
-Filtering
-Shopping cart
-Checkout
-Order history
-Order tracking
-Authentication state
+The shopper-facing React application provides a seamless browsing and purchasing experience.
 
-The primary state and API communication are handled through the
-ShopContext.
+### Key Features & Capabilities
+* **Storefront routes** & dynamic collection browsing
+* **Product detail view** with real-time inventory and variation tracking
+* **Advanced filtering** & dynamic product discovery
+* **Persistent shopping cart** and streamlined checkout pipeline
+* **Order history** & live status tracking
+* **Authentication state management**
 
-Main Shopper Components
+Primary state management and API communications are centralized within the **`ShopContext`**.
+
+### Main Shopper Flow
+
+```
 Storefront Routes
-      │
-      ├── Collection / Catalog
-      │
-      ├── Product Pages
-      │
-      ├── Cart
-      │
-      └── Checkout & Orders
-              │
-              ▼
-        ShopContext
-              │
-              ▼
-          Backend API
-🛠️ Admin Application
+   ├── Collection / Catalog
+   ├── Product Pages
+   ├── Cart
+   └── Checkout & Orders
+            │
+            ▼
+       ShopContext
+            │
+            ▼
+       Backend API
+```
 
-The administrator interface is isolated from the customer storefront.
+---
+
+## 🛠️ Admin Application
+
+The administrator application is strictly isolated from the customer storefront to ensure security and clean operational separation.
 
 Administrators can authenticate and access:
 
-📦 Product management
-🧾 Order management
-🔐 Protected admin routes
-➕ Product creation
-✏️ Product management
-👀 Order inspection
-Admin Route Flow
+- 📦 Product management
+- 🧾 Order management
+- 🔐 Protected admin routes
+- ➕ Product creation
+- ✏️ Product management
+- 👀 Order inspection
+
+### Admin Route Flow
+
+```
 Admin Login
-     │
-     ▼
+   │
+   ▼
 Admin Authentication
-     │
-     ▼
+   │
+   ▼
 Admin Routes
-     │
-     ├── Product Management
-     │
-     └── Order Management
+   ├── ➕ Product Creation & Editing
+   ├── ✏️ Product Catalog Management
+   └── 👀 Order Inspection
+```
 
-Protected administrative requests are validated through the backend
-authorization layer before reaching the relevant route/controller.
+> **Note:** Protected administrative requests are validated through the backend authorization layer before reaching any route or controller.
 
-⚙️ Backend Architecture
+---
 
-The backend follows a route → controller → model architecture.
+## ⚙️ Backend Architecture
 
-Client
-  │
-  ▼
+The backend follows a classic layered architecture: **Route → Controller → Model Architecture**.
+
+```
+Client Request
+      │
+      ▼
 Express Server
-  │
-  ├── Authentication
-  │
-  ├── Authorization
-  │
-  ├── Routes
-  │
-  ▼
-Controllers
-  │
-  ▼
-Mongoose Models
-  │
-  ▼
-MongoDB
-Backend Responsibilities
+      │
+      ├── 🔒 Authentication Middleware
+      ├── 🛡️ Authorization Middleware
+      └──  Routes
+            │
+            ▼
+       Controllers
+            │
+            ▼
+     Mongoose Models
+            │
+            ▼
+     MongoDB Database
+```
 
-The API server is responsible for:
+### Backend Responsibilities
+- 🔑 User authentication & token management
+- 🛡️ Role-based authorization (Admin / Customer)
+- 📦 Product operations & catalog data handling
+- 🛒 Cart persistence and state sync
+- 🧾 Order generation, tracking, and status processing
+- 👥 User profile management
+- 🗄️ Database querying and persistence
+- 🖼️ Image upload service integration
+- ⚡ Request validation & standardized response formatting
 
-User authentication
-Admin authorization
-Product operations
-Cart operations
-Order operations
-User operations
-Database communication
-Image upload integration
-Request/response handling
+---
+
+
 🔐 Authentication & Authorization
 
 VougeNest separates authentication from authorization.
