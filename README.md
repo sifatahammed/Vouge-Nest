@@ -33,7 +33,7 @@
 
 ---
 
-## 📖 Overview
+## 🌍 Overview
 
 **VougeNest** is a full-stack e-commerce web application designed around a
 separated **shopper storefront** and **administrator dashboard**.
