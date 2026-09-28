@@ -11,6 +11,13 @@
   </picture>
 </p>
 
+<h1 align="center">🛍️ VougeNest</h1>
+
+<p align="center">
+  A modern full-stack e-commerce platform with a customer storefront,
+  dedicated admin dashboard, RESTful backend API, secure authentication,
+  MongoDB persistence, and Cloudinary-powered image management.
+</p>
 
 <p align="center">
   <a href="https://react.dev/"><img src="https://img.shields.io/badge/Frontend-React-blue?logo=react" /></a>
@@ -20,6 +27,7 @@
   <a href="https://www.mongodb.com/"><img src="https://img.shields.io/badge/Database-MongoDB-brightgreen?logo=mongodb" /></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" /></a>
 </p>
+
 
 ![Demo](admin-frontend/public/vouge.png)
 
