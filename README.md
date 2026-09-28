@@ -814,9 +814,7 @@ GitHub issue.
 ## 👨‍💻 Author
 <div align="center">
 MD Sifat Ahammed Akash
-
 Full-Stack Developer | Computer Science & Engineering
-
 📧 Email: sifatahammed821@gmail.com
 
 </div>
